@@ -1,0 +1,69 @@
+# Fitness Class Database
+
+A relational database design project for a fitness centre. The database manages
+staff, members, fitness classes, and class bookings.
+
+This project was created for the Introduction to Databases module during the
+second semester of my first year.
+
+The project demonstrates database analysis and design, including:
+
+- Identifying entities and attributes
+- Defining primary, foreign, and candidate keys
+- Establishing relationships and multiplicities
+- Creating and populating MySQL tables
+- Writing queries to retrieve useful information
+
+## Database Entities
+
+The database contains four main entities:
+
+- **Staff** - Stores staff details, including name, address, phone number,
+  date of birth, and position.
+- **Member** - Stores member details, membership status, payment date, and
+  renewal date.
+- **Fitness Class** - Stores class name, day, time, room, and assigned
+  instructor.
+- **Bookings** - Represents the relationship between members and fitness
+  classes.
+
+## Database Relationships
+
+- **Staff and Fitness Class: one-to-many**  
+  A staff member can instruct multiple fitness classes, while each class is
+  assigned to one instructor.
+
+- **Member and Fitness Class: many-to-many**  
+  A member can book multiple fitness classes, and a fitness class can have
+  multiple members.
+
+The `bookings` table acts as a bridge for the many-to-many relationship
+between members and fitness classes.
+
+## Key Concepts
+
+- Primary keys (`PK`)
+- Foreign keys (`FK`)
+- Candidate keys
+- Entity relationships and multiplicities
+- Table joins and aggregate queries
+
+## Running the SQL Script
+
+The project is implemented in MySQL using [`FitnessClass.sql`](FitnessClass.sql).
+
+1. Install and start MySQL.
+2. Open MySQL Workbench or another MySQL client.
+3. Run the contents of `FitnessClass.sql`.
+
+The script creates a database named `fitness4life`, creates the required
+tables, inserts sample data, and includes example queries.
+
+## Example Queries
+
+The SQL file includes queries that:
+
+- List fitness classes with their instructors
+- Count the number of members booked into each class
+- List members with annual memberships and their classes
+- List instructors and the classes they teach
