@@ -6,64 +6,92 @@ staff, members, fitness classes, and class bookings.
 This project was created for the Introduction to Databases module during the
 second semester of my first year.
 
-The project demonstrates database analysis and design, including:
+## Features
 
-- Identifying entities and attributes
-- Defining primary, foreign, and candidate keys
-- Establishing relationships and multiplicities
-- Creating and populating MySQL tables
-- Writing queries to retrieve useful information
+- Staff and instructor information
+- Member and membership details
+- Fitness class schedules and rooms
+- Member-class bookings
+- Primary, foreign, and candidate keys
+- One-to-many and many-to-many relationships
+- Example joins and aggregate queries
 
-## Database Entities
+## Technologies
+
+- MySQL
+- SQL
+- MySQL Workbench
+
+## Database Structure
+
+```text
+Staff ─────< Fitness Class >──── Bookings ───── Member
+```
 
 The database contains four main entities:
 
-- **Staff** - Stores staff details, including name, address, phone number,
-  date of birth, and position.
-- **Member** - Stores member details, membership status, payment date, and
-  renewal date.
-- **Fitness Class** - Stores class name, day, time, room, and assigned
+| Entity | Description |
+|---|---|
+| `staff` | Staff details and positions |
+| `member` | Member details and membership information |
+| `fitness_class` | Class schedules, rooms, and assigned instructors |
+| `bookings` | Links members to the fitness classes they have booked |
+
+### Relationships
+
+- **Staff to Fitness Class — one-to-many**  
+  A staff member can instruct multiple classes, while each class has one
   instructor.
-- **Bookings** - Represents the relationship between members and fitness
-  classes.
 
-## Database Relationships
+- **Member to Fitness Class — many-to-many**  
+  A member can book multiple classes, and a class can have multiple members.
 
-- **Staff and Fitness Class: one-to-many**  
-  A staff member can instruct multiple fitness classes, while each class is
-  assigned to one instructor.
+  The `bookings` table acts as a junction table for this relationship.
 
-- **Member and Fitness Class: many-to-many**  
-  A member can book multiple fitness classes, and a fitness class can have
-  multiple members.
+## Prerequisites
 
-The `bookings` table acts as a bridge for the many-to-many relationship
-between members and fitness classes.
+- MySQL or MariaDB
+- A SQL client such as MySQL Workbench
+- Optional: Git
 
-## Key Concepts
+## Setup
 
-- Primary keys (`PK`)
-- Foreign keys (`FK`)
-- Candidate keys
-- Entity relationships and multiplicities
-- Table joins and aggregate queries
+1. Clone the repository:
 
-## Running the SQL Script
+   ```bash
+   git clone https://github.com/BecLord/Fitness-Class.git
+   cd Fitness-Class
+   ```
 
-The project is implemented in MySQL using [`FitnessClass.sql`](FitnessClass.sql).
-
-1. Install and start MySQL.
 2. Open MySQL Workbench or another MySQL client.
-3. Run the contents of `FitnessClass.sql`.
 
-The script creates a database named `fitness4life`, creates the required
-tables, inserts sample data, and includes example queries.
+3. Execute [`FitnessClass.sql`](./FitnessClass.sql).
+
+The script:
+
+- Creates the `fitness4life` database
+- Creates and populates the required tables
+- Contains example queries
+
+> **Note:** Review the script before running it because it may overwrite or
+> recreate existing tables.
 
 ## Example Queries
 
-The SQL file includes queries that:
+The SQL script demonstrates how to:
 
 - List fitness classes with their instructors
-- Count the number of members booked into each class
-- List members with annual memberships and their classes
+- Count the members booked into each class
+- Find annual members and their classes
 - List instructors and the classes they teach
+- Use table joins and aggregate functions
+
+## Key SQL Concepts
+
+- Primary and foreign keys
+- Candidate keys
+- Entity relationships and multiplicities
+- Bridge tables
+- Inner joins
+- Aggregate queries
+- SQL `GROUP BY` and aggregate functions
