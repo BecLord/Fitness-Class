@@ -1,5 +1,4 @@
-/* R00225669, Rebecca Lordan, COMP1CX */
-/* Statement that project is all of own work */
+/* Rebecca Lordan */
 DROP DATABASE IF EXISTS `fitness4life`;
 CREATE DATABASE `fitness4life`; 
 USE `fitness4life`;
